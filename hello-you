@@ -1,101 +1,67 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<title>A message for you</title>
+  <meta charset="UTF-8">
+  <title>Santa's Message</title>
+  <style>
+    body {
+      background-color: #ffe6f0; /* roz pal */
+      font-family: 'Arial', sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+    }
 
-<style>
-body {
-  margin: 0;
-  background-color: #0f0f0f;
-  font-family: Arial, sans-serif;
-}
+    .popup {
+      background-color: #ffb6c1; /* roz mai intens */
+      padding: 30px 40px;
+      border-radius: 20px;
+      box-shadow: 0 8px 16px rgba(0,0,0,0.3);
+      max-width: 400px;
+      text-align: center;
+      color: #fff;
+      font-size: 18px;
+      line-height: 1.5;
+    }
 
-/* POPUP BOX */
-.popup {
-  position: fixed;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  background: #ffffff;
-  padding: 22px 26px;
-  border-radius: 16px;
-  width: 320px;
-  box-shadow: 0 0 30px rgba(255, 105, 180, 0.55);
-  text-align: center;
-  animation: fadeIn 0.6s ease;
-}
+    .heart-btn {
+      margin-top: 20px;
+      padding: 10px 20px;
+      font-size: 24px;
+      color: #fff;
+      background-color: #ff69b4; /* roz strălucitor */
+      border: none;
+      border-radius: 50%;
+      cursor: pointer;
+      transition: transform 0.2s;
+    }
 
-.popup h2 {
-  font-size: 15px;
-  font-weight: normal;
-  margin-bottom: 16px;
-  color: #000;
-}
-
-.ok-btn {
-  background: #ff69b4;
-  border: none;
-  padding: 8px 26px;
-  border-radius: 22px;
-  color: white;
-  font-size: 14px;
-  cursor: pointer;
-}
-
-.ok-btn:hover {
-  background: #ff85c1;
-}
-
-@keyframes fadeIn {
-  from { opacity: 0; transform: translate(-50%, -55%); }
-  to { opacity: 1; transform: translate(-50%, -50%); }
-}
-</style>
+    .heart-btn:hover {
+      transform: scale(1.2);
+    }
+  </style>
 </head>
-
 <body>
 
-<!-- MUSIC -->
-<audio id="music" loop>
-  <source src="music.mp3" type="audio/mpeg">
-</audio>
-
-<!-- POPUP -->
-<div class="popup">
-  <h2>Hello, mister Wook.</h2>
-  <button class="ok-btn" onclick="nextMessage()">OK</button>
+<div class="popup" id="popup">
+  <p>Hello, mister Wook.</p>
+  <p>This is Santa, and someone told me you have been both good... and naughty.</p>
+  <p>Is that true?</p>
+  <p>She wants to tell you a secret.</p>
+  <p>You own her heart.</p>
+  <p>And she wants you to know you are making her life complete.</p>
+  <p>I love you, dearly, and endlessly.</p>
+  <p>Your one and only, Elisè.</p>
+  <p>And... I hope you don't mind the pink theme. Is my first time coding~</p>
+  <button class="heart-btn" onclick="closePopup()">❤️</button>
 </div>
 
 <script>
-const messages = [
-  "Hello, mister Wook.",
-  "This is Santa, and someone told me you have been both good... and naughty.",
-  "Is that true?",
-  "She wants to tell you a secret.",
-  "You own her heart.",
-  "And she wants you to know you are making her life complete.",
-  "I love you, dearly, and endlessly.",
-  "Your one and only, Elisè."
-  "And... I hope you don't mind the pink theme. It is my first time coding"
-];
-
-let index = 0;
-const popupText = document.querySelector(".popup h2");
-const music = document.getElementById("music");
-
-function nextMessage() {
-  if (music.paused) {
-    music.play();
+  function closePopup() {
+    document.getElementById('popup').style.display = 'none';
   }
-
-  index++;
-  if (index < messages.length) {
-    popupText.textContent = messages[index];
-  } else {
-    document.querySelector(".popup").style.display = "none";
-  }
-}
 </script>
 
 </body>
